@@ -6,7 +6,6 @@ type Node<T> = {
 export default class Stack<T> {
     public length: number;
     public head?: Node<T>;
-    public tail?: Node<T>;
 
     constructor() {
         this.head = undefined;
@@ -14,23 +13,20 @@ export default class Stack<T> {
     }
 
     push(item: T): void {
-        if (!this.head) {
-            const node = { value: item } as Node<T>;
-            this.head = this.tail = node;
-            this.length++;
-        }
-        const oldHead = this.head;
-        const head = { value: item } as Node<T>;
-        this.head = head;
-        this.head.next = oldHead;
+        const node = { value: item } as Node<T>;
+        node.next = this.head;
+        this.head = node;
+        this.length++;
     }
     pop(): T | undefined {
+        this.length = Math.max(0, this.length - 1);
         if (!this.head) {
             return undefined;
         }
         const head = this.head;
+        this.head = this.head.next;
         head.next = undefined;
-        this.length--;
+
         return head.value;
     }
     peek(): T | undefined {
