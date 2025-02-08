@@ -57,6 +57,6 @@ export default function solve(
         seen.push(new Array(maze[0].length).fill(false));
     }
 
-    walk(maze, wall, end, start, seen, path);
+    walk(maze, wall, start, end, seen, path);
     return path;
 }
