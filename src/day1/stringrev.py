@@ -1,3 +1,6 @@
+import sys
+
+
 def reverse(string):
     if (len(string) <= 0):
         return string
@@ -6,3 +9,6 @@ def reverse(string):
 
 result = reverse("nigga")
 print(result)
+
+
+print(sys.getrecursionlimit())
