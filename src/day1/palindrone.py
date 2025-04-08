@@ -1,8 +1,10 @@
-def palindore(list):
-    if (len(list) <= 1):
-        return True
-    return list[0] == list[-1] and palindore(list[1:-1])
 
-
-result = palindore("niggin0")
-print(result)
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        x_str = str(x)
+        if len(x_str) == 1:
+            return True
+        elif x_str[0] == x_str[-1]:
+            return self.isPalindrome(x_str[1, -1])
+        else:
+            return False
